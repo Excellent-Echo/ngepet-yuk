@@ -1,16 +1,13 @@
 import React from 'react'
-import Navbar from '../components/navbar'
+import { Link } from 'react-router-dom'
 
 import '../assets/css/auth.css'
-
+import Navbar from '../components/navbar'
 import securityIllustration from '../assets/illustrations/security.svg'
 
 function Login() {
     return (
         <>
-            <div className="container-fluid">
-                <Navbar/>
-            </div>
             <div className="container-fluid">
                 <div className="container">
                     <div className="auth-page-container">
@@ -42,7 +39,7 @@ function Login() {
                                         </form>
                                         <br/>
                                         <h6>Baru mau mulai ngepet?</h6>
-                                        <button type="button" className="btn btnAuth btnLimeOutline">Daftar</button>
+                                        <Link className="btn btnAuth btnLimeOutline" to="/register">Daftar</Link>
                                     </div>
                                 </div>
                             </div>

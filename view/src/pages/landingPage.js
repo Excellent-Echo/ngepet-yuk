@@ -7,9 +7,6 @@ import ethereumIllustration from "../assets/illustrations/ethereum.svg"
 function LandingPage() {
     return (
         <>
-        <div className="container-fluid">
-          <Navbar/>
-        </div>
         <div className="container-fluid landing-title-container">
           <div className="container">
             <div className="row align-items-center">
