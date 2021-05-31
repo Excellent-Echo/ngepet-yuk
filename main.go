@@ -20,10 +20,7 @@ func main() {
 	r := gin.Default()
 	r.GET("/users", userHandler.ShowAllUser)
 	r.POST("/users/register", userHandler.CreateUserHandler)
-	// r.GET("/users", handler.GetAllUser)
-	// r.GET("/users/:user_id", handler.HandleUsersID)
-	// r.DELETE("/users/:user_id", handler.HandleDeleteUser)
-	// r.POST("/users/:user_id", handler.HandleUpdateUser)
+	r.GET("/users/:user_id", userHandler.GetUserByIDHandler)
 
 	r.Run(":8080")
 }

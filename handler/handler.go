@@ -3,6 +3,7 @@ package handler
 import (
 	"log"
 	"net/http"
+	"strconv"
 	"time"
 
 	"ngepet-yuk/config"
@@ -60,20 +61,44 @@ func (h *userHandler) CreateUserHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, response)
 }
 
+// GET USER BY ID
+func (h *userHandler) GetUserByIDHandler(c *gin.Context) {
+	id := c.Param("id")
+
+	idNumber, err := strconv.Atoi(id)
+
+	if err != nil || idNumber == 0 {
+		responseError := helper.APIResponse("input params error", http.StatusOK, "bad request", gin.H{"errors": err.Error()})
+		c.JSON(http.StatusOK, responseError)
+	}
+	user, err := h.userService.GetUserByID(idNumber)
+
+	if err != nil {
+		responseError := helper.APIResponse("internal server error", http.StatusOK, "error", gin.H{"errors": err.Error()})
+
+		c.JSON(http.StatusOK, responseError)
+		return
+	}
+	response := helper.APIResponse("success get user by ID", http.StatusOK, "success", user)
+	c.JSON(http.StatusOK, response)
+}
+
 var DB = config.Connection()
 
 // YANG INI SABAR DLU BELUM DITERAPIN CLEAN ARSITEK
-func (h *userHandler) GetUserByID(c *gin.Context) {
-	var users entity.User
 
-	id := c.Params.ByName("user_id")
+// GET USER BY ID
+// func (h *userHandler) GetUserByID(c *gin.Context) {
+// 	var users entity.User
 
-	if err := DB.Where("user_id = ?", id).Find(&users).Error; err != nil {
-		log.Println(err.Error())
-	}
+// 	id := c.Params.ByName("user_id")
 
-	c.JSON(http.StatusOK, users)
-}
+// 	if err := DB.Where("user_id = ?", id).Find(&users).Error; err != nil {
+// 		log.Println(err.Error())
+// 	}
+
+// 	c.JSON(http.StatusOK, users)
+// }
 
 func HandleDeleteUser(c *gin.Context) {
 
