@@ -63,22 +63,18 @@ func (h *userHandler) CreateUserHandler(c *gin.Context) {
 
 // GET USER BY ID
 func (h *userHandler) GetUserByIDHandler(c *gin.Context) {
-	id := c.Param("id")
+	id := c.Params.ByName("user_id")
 
-	idNumber, err := strconv.Atoi(id)
+	idUser, _ := strconv.Atoi(id)
 
-	if err != nil || idNumber == 0 {
-		responseError := helper.APIResponse("input params error", http.StatusOK, "bad request", gin.H{"errors": err.Error()})
-		c.JSON(http.StatusOK, responseError)
-	}
-	user, err := h.userService.GetUserByID(idNumber)
-
+	user, err := h.userService.GetUserByID(idUser)
 	if err != nil {
-		responseError := helper.APIResponse("internal server error", http.StatusOK, "error", gin.H{"errors": err.Error()})
+		responseError := helper.APIResponse("input params error", http.StatusOK, "bad request", gin.H{"errors": err.Error()})
 
 		c.JSON(http.StatusOK, responseError)
 		return
 	}
+
 	response := helper.APIResponse("success get user by ID", http.StatusOK, "success", user)
 	c.JSON(http.StatusOK, response)
 }

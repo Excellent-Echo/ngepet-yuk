@@ -12,7 +12,7 @@ import (
 type Service interface {
 	GetAllUser() ([]UserFormat, error)
 	SaveNewUser(user entity.UserInput) (UserFormat, error)
-	GetUserByID(ID int) (UserFormat, error)
+	GetUserByID(userID int) (UserFormat, error)
 }
 
 type service struct {
@@ -65,16 +65,15 @@ func (s *service) SaveNewUser(user entity.UserInput) (UserFormat, error) {
 	return formatUser, nil
 }
 
-func (s *service) GetUserByID(ID int) (UserFormat, error) {
-	user, err := s.repository.FindByID(ID)
+func (s *service) GetUserByID(userID int) (UserFormat, error) {
+	user, err := s.repository.FindByID(userID)
 
 	if err != nil {
 		return UserFormat{}, err
 	}
 
 	if user.ID == 0 {
-		newError := fmt.Sprintf("user id %d not found", user.ID)
-
+		newError := fmt.Sprintf("user id %d not found", userID)
 		return UserFormat{}, errors.New(newError)
 	}
 
