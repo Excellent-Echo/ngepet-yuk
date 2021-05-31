@@ -1,16 +1,13 @@
 import React from 'react'
-import Navbar from '../components/navbar'
+import { Link } from 'react-router-dom'
 
 import '../assets/css/auth.css'
-
+import Navbar from '../components/navbar'
 import securityIllustration from '../assets/illustrations/security.svg'
 
 function Register() {
     return (
         <>
-            <div className="container-fluid">
-                <Navbar/>
-            </div>
             <div className="container-fluid">
                 <div className="container">
                     <div className="auth-page-container">
@@ -46,7 +43,7 @@ function Register() {
                                         </form>
                                         <br/>
                                         <h6>Sudah pernah belajar ngepet disini?</h6>
-                                        <button type="button" className="btn btnAuth btnLimeOutline">Login</button>
+                                        <Link className="btn btnAuth btnLimeOutline" to="/login">Login</Link>
                                     </div>
                                 </div>
                             </div>
