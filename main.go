@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ngepet-yuk/auth"
 	"ngepet-yuk/config"
 	"ngepet-yuk/handler"
 	"ngepet-yuk/user"
@@ -13,13 +14,15 @@ var (
 	DB             *gorm.DB = config.Connection()
 	userRepository          = user.NewRepository(DB)
 	userService             = user.NewService(userRepository)
-	userHandler             = handler.NewUserHandler(userService)
+	authService             = auth.NewService()
+	userHandler             = handler.NewUserHandler(userService, authService)
 )
 
 func main() {
 	r := gin.Default()
 	r.GET("/users", userHandler.ShowAllUser)
 	r.POST("/users/register", userHandler.CreateUserHandler)
+	r.POST("/users/login", userHandler.LoginUserHandler)
 	r.GET("/users/:user_id", userHandler.GetUserByIDHandler)
 
 	r.Run(":8080")

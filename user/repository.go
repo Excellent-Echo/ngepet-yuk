@@ -9,7 +9,8 @@ import (
 type Repository interface {
 	GetAll() ([]entity.User, error)
 	Create(user entity.User) (entity.User, error)
-	FindByID(ID int) (entity.User, error)
+	FindByID(ID string) (entity.User, error)
+	FindByEmail(email string) (entity.User, error)
 }
 
 type repository struct {
@@ -41,10 +42,21 @@ func (r *repository) Create(user entity.User) (entity.User, error) {
 	return user, nil
 }
 
-func (r *repository) FindByID(ID int) (entity.User, error) {
+func (r *repository) FindByID(ID string) (entity.User, error) {
 	var user entity.User
 
 	err := r.db.Where("id = ?", ID).Find(&user).Error
+	if err != nil {
+		return user, err
+	}
+
+	return user, nil
+}
+
+func (r *repository) FindByEmail(email string) (entity.User, error) {
+	var user entity.User
+
+	err := r.db.Where("email = ?", email).Find(&user).Error
 	if err != nil {
 		return user, err
 	}

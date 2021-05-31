@@ -3,9 +3,9 @@ package handler
 import (
 	"log"
 	"net/http"
-	"strconv"
 	"time"
 
+	"ngepet-yuk/auth"
 	"ngepet-yuk/config"
 	"ngepet-yuk/entity"
 	"ngepet-yuk/helper"
@@ -16,10 +16,11 @@ import (
 
 type userHandler struct {
 	userService user.Service
+	authService auth.Service
 }
 
-func NewUserHandler(userService user.Service) *userHandler {
-	return &userHandler{userService}
+func NewUserHandler(userService user.Service, authService auth.Service) *userHandler {
+	return &userHandler{userService, authService}
 }
 
 // SHOW ALL USER
@@ -65,9 +66,7 @@ func (h *userHandler) CreateUserHandler(c *gin.Context) {
 func (h *userHandler) GetUserByIDHandler(c *gin.Context) {
 	id := c.Params.ByName("user_id")
 
-	idUser, _ := strconv.Atoi(id)
-
-	user, err := h.userService.GetUserByID(idUser)
+	user, err := h.userService.GetUserByID(id)
 	if err != nil {
 		responseError := helper.APIResponse("input params error", http.StatusOK, "bad request", gin.H{"errors": err.Error()})
 
@@ -132,4 +131,39 @@ func HandleUpdateUser(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, user)
+}
+
+// USER LOGIN
+func (h *userHandler) LoginUserHandler(c *gin.Context) {
+	var inputLoginUser entity.LoginUserInput
+
+	if err := c.ShouldBindJSON(&inputLoginUser); err != nil {
+		splitError := helper.SplitErrorInformation(err)
+		responseError := helper.APIResponse("input data required", http.StatusOK, "bad request", gin.H{"errors": splitError})
+
+		c.JSON(http.StatusOK, responseError)
+		return
+	}
+
+	userData, err := h.userService.LoginUser(inputLoginUser)
+
+	if err != nil {
+		splitError := helper.SplitErrorInformation(err)
+		responseError := helper.APIResponse("input data required", http.StatusUnauthorized, "bad request", gin.H{"errors": splitError})
+
+		c.JSON(http.StatusUnauthorized, responseError)
+		return
+	}
+
+	token, err := h.authService.GenerateToken(userData.ID)
+
+	if err != nil {
+		splitError := helper.SplitErrorInformation(err)
+		responseError := helper.APIResponse("input data required", http.StatusUnauthorized, "bad request", gin.H{"errors": splitError})
+
+		c.JSON(http.StatusUnauthorized, responseError)
+		return
+	}
+	response := helper.APIResponse("success login user", http.StatusOK, "success", gin.H{"token": token})
+	c.JSON(http.StatusOK, response)
 }
