@@ -9,6 +9,7 @@ import (
 type Repository interface {
 	GetAll() ([]entity.User, error)
 	Create(user entity.User) (entity.User, error)
+	FindByID(ID int) (entity.User, error)
 }
 
 type repository struct {
@@ -33,6 +34,17 @@ func (r *repository) GetAll() ([]entity.User, error) {
 func (r *repository) Create(user entity.User) (entity.User, error) {
 
 	err := r.db.Create(&user).Error
+	if err != nil {
+		return user, err
+	}
+
+	return user, nil
+}
+
+func (r *repository) FindByID(ID int) (entity.User, error) {
+	var user entity.User
+
+	err := r.db.Where("id = ?", ID).Find(&user).Error
 	if err != nil {
 		return user, err
 	}
