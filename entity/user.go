@@ -11,5 +11,5 @@ type User struct {
 	CreatedAt       time.Time         `json:"created_at"`
 	UpdatedAt       time.Time         `json:"updated_at"`
 	UserDetail      UserDetail        `gorm:"foreignKey:UserID"`
-	UserTransaction []userTransaction `gorm:"foreignKey:UserID"`
+	UserTransaction []UserTransaction `gorm:"foreignKey:UserID"`
 }
