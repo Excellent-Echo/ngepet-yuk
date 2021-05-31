@@ -1,9 +1,8 @@
 package handler
 
 import (
-	"log"
 	"net/http"
-	"time"
+	"strconv"
 
 	"ngepet-yuk/auth"
 	"ngepet-yuk/config"
@@ -80,57 +79,59 @@ func (h *userHandler) GetUserByIDHandler(c *gin.Context) {
 
 var DB = config.Connection()
 
-// YANG INI SABAR DLU BELUM DITERAPIN CLEAN ARSITEK
-
-// GET USER BY ID
-// func (h *userHandler) GetUserByID(c *gin.Context) {
-// 	var users entity.User
-
-// 	id := c.Params.ByName("user_id")
-
-// 	if err := DB.Where("user_id = ?", id).Find(&users).Error; err != nil {
-// 		log.Println(err.Error())
-// 	}
-
-// 	c.JSON(http.StatusOK, users)
-// }
-
-func HandleDeleteUser(c *gin.Context) {
-
+// DELETE USER BY ID
+func (h *userHandler) DeleteUserByIDHandler(c *gin.Context) {
 	id := c.Params.ByName("user_id")
 
-	if err := DB.Where("user_id = ?", id).Delete(&entity.User{}).Error; err != nil {
-		log.Println(err.Error())
+	user, err := h.userService.DeleteUserByID(id)
+
+	if err != nil {
+		responseError := helper.APIResponse("error bad request delete user", http.StatusOK, "error", gin.H{"error": err.Error()})
+
+		c.JSON(http.StatusOK, responseError)
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"user_id": id,
-		"message": "success delete",
-	})
+	response := helper.APIResponse("success delete user by ID", http.StatusOK, "success", user)
+	c.JSON(http.StatusOK, response)
 }
 
-func HandleUpdateUser(c *gin.Context) {
-	var user entity.User
-	var userInput entity.UserInput
-
+// UPDATE USER BY ID
+func (h *userHandler) UpdateUserByIDHandler(c *gin.Context) {
 	id := c.Params.ByName("user_id")
-	DB.Where("user_id = ?", id).Find(&user)
 
-	if err := c.ShouldBindJSON(&userInput); err != nil {
-		log.Println(err.Error())
+	var updateUserInput entity.UpdateUserInput
+
+	if err := c.ShouldBindJSON(&updateUserInput); err != nil {
+		splitError := helper.SplitErrorInformation(err)
+		responseError := helper.APIResponse("input data required", http.StatusOK, "bad request", gin.H{"errors": splitError})
+
+		c.JSON(http.StatusOK, responseError)
 		return
 	}
-	user.UserName = userInput.UserName
-	user.Email = userInput.Email
-	user.Password = userInput.Password
-	user.UpdatedAt = time.Now()
 
-	if err := DB.Where("user_id = ?", id).Save(&user).Error; err != nil {
-		log.Println(err.Error())
+	idParam, _ := strconv.Atoi(id)
+
+	// ngecek id sama apa engga sama yang di inputin
+	userData := int(c.MustGet("currentUser").(int))
+
+	if idParam != userData {
+		responseError := helper.APIResponse("Unauthorize", http.StatusUnauthorized, "error", gin.H{"error": "user ID not authorize"})
+
+		c.JSON(http.StatusUnauthorized, responseError)
 		return
 	}
-	c.JSON(http.StatusOK, user)
+
+	user, err := h.userService.UpdateUserByID(id, updateUserInput)
+	if err != nil {
+		responseError := helper.APIResponse("internal server error", 500, "error", gin.H{"error": err.Error()})
+
+		c.JSON(500, responseError)
+		return
+	}
+
+	response := helper.APIResponse("success update user by ID", http.StatusOK, "success", user)
+	c.JSON(http.StatusOK, response)
 }
 
 // USER LOGIN
