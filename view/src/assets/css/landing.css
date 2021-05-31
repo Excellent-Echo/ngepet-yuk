@@ -1,0 +1,49 @@
+/* UNIVERSAL */
+
+.landing-title-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-title-image {
+  max-width: 100%;
+  margin: auto;
+  padding: 0;
+}
+
+/* END */
+
+/* DESKTOP ONLY */
+
+@media (min-width: 992px) { 
+
+  /* LANDING PAGE */
+  .landing-title-container {
+    height: 35vw;
+  }
+
+  
+  /* END */
+
+}
+
+/* END */
+
+/* MOBILE ONLY */
+
+@media (max-width: 575px) { 
+
+    /* LANDING PAGE */
+    .landing-title-container {
+      
+    }
+  
+    .landing-title-image-container {
+      display: none;
+    }
+    /* END */
+  
+  }
+
+/* END */
