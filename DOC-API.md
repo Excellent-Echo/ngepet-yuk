@@ -3,6 +3,10 @@
 
 Yuk ngepet adalah platform website yang menyediakan kursus edukasi agar bisa di kira ngepet oleh tetangga!
 
+ini adalah dokumentasi API dan Task List
+Baik Backend dan Frontend harus membuat berdasarkan Dokumentasi ini
+bila ada update Endpoit Detail, ber arti ada penambahan task
+
 &bnsp;
 
 ## Daftar Endpoint 
