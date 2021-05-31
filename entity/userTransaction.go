@@ -2,7 +2,7 @@ package entity
 
 import "time"
 
-type userTransaction struct {
+type UserTransaction struct {
 	ID           int       `gorm:"primaryKey" json:"id"`
 	SubType      int       `json:"sub_type"`
 	Date         time.Time `json:"date"`
