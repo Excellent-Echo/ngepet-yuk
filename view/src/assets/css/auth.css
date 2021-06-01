@@ -1,0 +1,49 @@
+/* UNIVERSAL */
+
+.auth-page-container {
+  padding: 15px;
+}
+
+.auth-img-container {
+    padding: 50px;
+}
+
+.auth-form-container {
+    background-color: #172A46;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.form-control {
+  color: #172A46 !important;
+}
+
+/* END */
+
+/* DESKTOP ONLY */
+
+@media (min-width: 992px) { 
+
+  
+
+}
+
+/* END */
+
+/* PHONE ONLY */
+
+@media (max-width: 575px) { 
+
+.auth-img-container {
+    display: none;
+}
+
+.btn.btnAuth.btnLime, .btn.btnAuth.btnLimeOutline {
+    width: 100%;
+}
+
+.auth-form-container {
+    text-align: center;
+}
+
+}

@@ -1,0 +1,86 @@
+/* UNIVERSAL */
+
+* {
+ font-family: 'Open Sans', sans-serif;
+ font-weight: 300;
+ color: #C4CEED !important;
+}
+
+body {
+  background-color: #0A192F;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+ font-family: 'Archivo', sans-serif;
+ font-weight: 700;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.landing-title-container {
+  background-color: #172A46;
+  /* text-align: center; */
+  height: 50vw;
+  display: flex;
+  align-items: center;
+}
+
+.btn-lime-container {
+  padding-top: 15px;
+}
+
+.nav-link.btn {
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.btnLime {
+  background-color: #64FCDA;
+  color: #172A46 !important;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btnLime:hover {
+  background-color: #05F0BD;
+}
+
+.btnLime:active {
+  background-color: #04B48E;
+}
+
+.btnLimeOutline {
+  background: transparent;
+  color: #64FCDA !important;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btnLimeOutline:hover {
+  background-color: #64FCDA;
+  color: #0A192F !important;
+}
+
+.btnLimeOutline:active {
+  background-color: #04B48E;
+}
+
+/* DESKTOP ONLY */
+
+@media (min-width: 992px) { 
+
+  
+
+}
+
+/* END */
+
+/* PHONE ONLY */
+
+@media (max-width: 575px) { 
+
+
+  
+}
