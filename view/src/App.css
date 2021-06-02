@@ -3,11 +3,18 @@
 * {
  font-family: 'Open Sans', sans-serif;
  font-weight: 300;
- color: #C4CEED !important;
+ color: #EFF2FA !important;
+}
+
+b {
+  font-weight: 700;
 }
 
 body {
-  background-color: #0A192F;
+  background-color: #0a192f;
+  opacity: 1;
+  background: radial-gradient(circle, transparent 20%, #0a192f 20%, #0a192f 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #0a192f 20%, #0a192f 80%, transparent 80%, transparent) 35px 35px, linear-gradient(#172a46 2.8000000000000003px, transparent 2.8000000000000003px) 0 -1.4000000000000001px, linear-gradient(90deg, #172a46 2.8000000000000003px, #0a192f 2.8000000000000003px) -1.4000000000000001px 0;
+  background-size: 70px 70px, 70px 70px, 35px 35px, 35px 35px;
 }
 
 h1, h2, h3, h4, h5, h6, .title {
@@ -15,16 +22,17 @@ h1, h2, h3, h4, h5, h6, .title {
  font-weight: 700;
 }
 
-.container-fluid {
-  padding: 0;
+.light-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 300;
 }
 
-.landing-title-container {
-  background-color: #172A46;
-  /* text-align: center; */
-  height: 50vw;
-  display: flex;
-  align-items: center;
+p.subtitle {
+  line-height: 1.75em;
+}
+
+.container-fluid {
+  padding: 0;
 }
 
 .btn-lime-container {

@@ -1,7 +1,11 @@
 /* UNIVERSAL */
 
 .auth-page-container {
-  padding: 15px;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 5vh;
+    padding-top: 10vh;
 }
 
 .auth-img-container {
