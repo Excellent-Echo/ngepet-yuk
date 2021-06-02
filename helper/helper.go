@@ -51,3 +51,11 @@ func ValidateIDNumber(ID string) error {
 
 	return nil
 }
+
+func ValidatePassword(password string) error {
+	if len(password) < 6 {
+		return errors.New("invalid password")
+	}
+
+	return nil
+}
