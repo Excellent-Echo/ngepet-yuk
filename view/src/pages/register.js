@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import '../assets/css/auth.css'
 import Navbar from '../components/navbar'
-import securityIllustration from '../assets/illustrations/security.svg'
+import profileIllustration from '../assets/illustrations/profile.svg'
 
 function Register() {
     return (
@@ -14,7 +14,7 @@ function Register() {
                         <div className="row align-items-center">
                             <div className="col-md-8">
                                 <div className="auth-img-container">
-                                    <img className="img-fluid auth-img" src={ securityIllustration } alt=""/>
+                                    <img className="img-fluid auth-img" src={ profileIllustration } alt=""/>
                                 </div>
                             </div>
                             <div className="col-md-4">
