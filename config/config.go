@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"ngepet-yuk/entity"
+	// "ngepet-yuk/entity"
 
 	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
@@ -26,13 +26,13 @@ func Connection() *gorm.DB {
 		panic(err.Error())
 	}
 
-	db.AutoMigrate(&entity.Category{})
-	db.AutoMigrate(&entity.User{})
-	db.AutoMigrate(&entity.Courses{})
-	db.AutoMigrate(&entity.Mastery{})
-	db.AutoMigrate(&entity.SubType{})
-	db.AutoMigrate(&entity.UserDetail{})
-	db.AutoMigrate(&entity.UserTransaction{})
+	// db.AutoMigrate(&entity.Category{})
+	// db.AutoMigrate(&entity.User{})
+	// db.AutoMigrate(&entity.Courses{})
+	// db.AutoMigrate(&entity.Mastery{})
+	// db.AutoMigrate(&entity.SubType{})
+	// db.AutoMigrate(&entity.UserDetail{})
+	// db.AutoMigrate(&entity.UserTransaction{})
 
 	return db
 }

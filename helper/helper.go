@@ -1,6 +1,12 @@
 package helper
 
-import "github.com/go-playground/validator/v10"
+import (
+	"errors"
+	"math"
+	"strconv"
+
+	"github.com/go-playground/validator/v10"
+)
 
 type Response struct {
 	Meta Meta        `json:"meta"`
@@ -36,4 +42,12 @@ func SplitErrorInformation(err error) []string {
 	}
 
 	return errors
+}
+
+func ValidateIDNumber(ID string) error {
+	if num, err := strconv.Atoi(ID); err != nil || num == 0 || math.Signbit(float64(num)) == true {
+		return errors.New("input must be a valid id user")
+	}
+
+	return nil
 }
