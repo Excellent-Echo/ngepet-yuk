@@ -44,18 +44,6 @@ function MainPage() {
                         </li>
                     </ul>
                 </div>
-                <div className="offcanvas-body sidebar-footer">
-                    <ul className="list-unstyled footer-bar">
-                        <li className="sidebar-link">
-                            <div className="row">
-                                <div className="col-4"><i class="fas fa-sign-out-alt"></i></div>
-                                <div className="col">
-                                    <p className="title">Logout </p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
             </div>
             <div class="offcanvas offcanvas-end user-sidebar" data-bs-scroll="true" tabindex="-1" id="sidebarUser" aria-labelledby="sidebarUser">
                 <div class="offcanvas-header sidebar-title">
