@@ -17,10 +17,15 @@ function Navbar2() {
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span className="title">Randhika Rizkyaldi</span>
+                                    <span className="title">[YOUR NAME]</span>
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                                    <Link className="dropdown-item" to="/userdetail">
+                                        Profil
+                                    </Link>
+                                    <Link className="dropdown-item" to="/logout">
+                                        Log Out
+                                    </Link>
                                 </ul>
                             </li>
                         </ul>

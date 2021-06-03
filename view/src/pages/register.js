@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import '../assets/css/auth.css'
 import Navbar from '../components/navbar'
 import profileIllustration from '../assets/illustrations/profile.svg'
+import Footer from '../components/footer'
 
 function Register() {
     return (
@@ -54,6 +55,7 @@ function Register() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import '../assets/css/auth.css'
 import Navbar from '../components/navbar'
 import securityIllustration from '../assets/illustrations/security.svg'
+import Footer from '../components/footer'
 
 function Login() {
     return (
@@ -50,6 +51,7 @@ function Login() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }
