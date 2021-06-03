@@ -22,7 +22,7 @@ func NewService(repository Repository) *service {
 }
 
 func (s *service) GetUserTransactionByUserID(userID string) (entity.UserTransaction, error) {
-	userTransaction, err := s.repository.FindByUserID(userID)
+	userTransaction, err := s.repository.FindByUserTransactionID(userID)
 
 	if err != nil {
 		return userTransaction, err

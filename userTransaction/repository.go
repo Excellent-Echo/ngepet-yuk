@@ -8,7 +8,7 @@ import (
 
 type Repository interface {
 	FindByID(userTransactionID string) (entity.UserTransaction, error)
-	FindByUserID(userID string) (entity.UserTransaction, error)
+	FindByUserTransactionID(userID string) (entity.UserTransaction, error)
 	Create(input entity.UserTransaction) (entity.UserTransaction, error)
 	// Complete(TodoID string) (string, error)
 }
