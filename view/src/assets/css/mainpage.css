@@ -1,0 +1,65 @@
+/* UNIVERSAL */
+
+    .offcanvas {
+        background-color: #087E8B;
+        padding: 5vh;
+        /* width: 25vw; */
+    }
+
+    .sidebar-body {
+        display: flex;
+    }
+
+    .sidebar-menubar {
+        align-self: center;
+    }
+
+    .sidebar-link {
+        cursor: pointer;
+        padding: 1.5vh;
+        padding-left: 0;
+        font-size: large;
+        transition: .2s all ease-in-out;
+    }
+
+    .sidebar-link:hover {
+
+    }
+
+    .sidebar-link .fas {
+        font-size: x-large;
+    }
+
+    .logout-link {
+        /* margin-top: 50px; */
+    }
+
+    .sidebar-footer {
+        display: flex;
+    }
+
+    .footer-bar {
+        align-self: flex-end;
+    }
+
+    .mainpage-container {
+        padding-top: 15vh;
+    }
+   
+   /* DESKTOP ONLY */
+   
+   @media (min-width: 768px) { 
+   
+     
+   
+   }
+   
+   /* END */
+   
+   /* PHONE ONLY */
+   
+   @media (max-width: 768px) { 
+   
+   
+     
+   }
