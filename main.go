@@ -11,8 +11,11 @@ func main() {
 
 	routes.UserRoute(r)
 	routes.UserDetailRoute(r)
-	routes.SubTypeRoute(r)
 	routes.UserTransactionRoute(r)
+	routes.SubTypeRoute(r)
+	routes.CategoryRoute(r)
+	routes.MasteryRoute(r)
+	routes.CoursesRoute(r)
 
 	r.Run(":8080")
 }

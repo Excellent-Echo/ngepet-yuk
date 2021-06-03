@@ -7,6 +7,7 @@ import (
 )
 
 type Repository interface {
+	GetAll() ([]entity.UserTransaction, error)
 	FindByID(userTransactionID string) (entity.UserTransaction, error)
 	FindByUserID(userID string) (entity.UserTransaction, error)
 	Create(input entity.UserTransaction) (entity.UserTransaction, error)
@@ -19,6 +20,17 @@ type repository struct {
 
 func NewRepository(db *gorm.DB) *repository {
 	return &repository{db}
+}
+
+func (r *repository) GetAll() ([]entity.UserTransaction, error) {
+	var UserTransactions []entity.UserTransaction
+
+	err := r.db.Find(&UserTransactions).Error
+	if err != nil {
+		return UserTransactions, err
+	}
+
+	return UserTransactions, nil
 }
 
 func (r *repository) FindByID(userTransactionID string) (entity.UserTransaction, error) {

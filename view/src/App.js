@@ -9,14 +9,12 @@ import Navbar from "./components/navbar";
 import Register from './pages/register';
 import Login from './pages/login';
 import LandingPage from './pages/landingPage';
+import MainPage from './pages/mainPage';
 
 function App() {
   return (
     <>
       <Router>
-        <div className="container-fluid">
-          <Navbar/>
-        </div>
         <Switch>
           <Route exact path="/">
             <LandingPage/>
@@ -27,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/register">
             <Register/>
+          </Route>
+          <Route exact path="/mainmenu">
+            <MainPage/>
           </Route>
         </Switch>
       </Router>

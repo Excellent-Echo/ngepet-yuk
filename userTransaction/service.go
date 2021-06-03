@@ -9,6 +9,7 @@ import (
 )
 
 type Service interface {
+	GetAllUserTransaction() ([]entity.UserTransaction, error)
 	GetUserTransactionByUserID(userID string) (entity.UserTransaction, error)
 	SaveNewUserTransaction(input entity.UserTransactionInput, userID string) (entity.UserTransaction, error)
 }
@@ -19,6 +20,14 @@ type service struct {
 
 func NewService(repository Repository) *service {
 	return &service{repository}
+}
+
+func (s *service) GetAllUserTransaction() ([]entity.UserTransaction, error) {
+	userTransaction, err := s.repository.GetAll()
+	if err != nil {
+		return userTransaction, err
+	}
+	return userTransaction, nil
 }
 
 func (s *service) GetUserTransactionByUserID(userID string) (entity.UserTransaction, error) {

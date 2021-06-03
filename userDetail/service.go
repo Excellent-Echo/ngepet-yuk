@@ -11,6 +11,7 @@ import (
 
 type Service interface {
 	// GetUserDetailByID(userDetailID string) (entity.UserDetail, error)
+	GetAllUserDetail() ([]entity.UserDetail, error)
 	GetUserDetailByUserID(userID string) (entity.UserDetail, error)
 	SaveNewUserDetail(input entity.UserDetailInput, userID string) (entity.UserDetail, error)
 	UpdateUserDetailByID(ID string, dataInput entity.UpdateUserDetailInput) (entity.UserDetail, error)
@@ -33,6 +34,14 @@ func NewService(repository Repository) *service {
 
 // 	return userDetail, nil
 // }
+
+func (s *service) GetAllUserDetail() ([]entity.UserDetail, error) {
+	userDetail, err := s.repository.GetAll()
+	if err != nil {
+		return userDetail, err
+	}
+	return userDetail, nil
+}
 
 func (s *service) GetUserDetailByUserID(userID string) (entity.UserDetail, error) {
 	userDetail, err := s.repository.FindByUserID(userID)
