@@ -16,6 +16,7 @@ func main() {
 	routes.CategoryRoute(r)
 	routes.MasteryRoute(r)
 	routes.CoursesRoute(r)
+	routes.CryptoRoute(r)
 
 	r.Run(":8080")
 }
