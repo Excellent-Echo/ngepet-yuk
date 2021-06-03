@@ -49,7 +49,7 @@ func (h *categoryHandler) CreateCategoryHandler(c *gin.Context) {
 		c.JSON(500, responseError)
 		return
 	}
-	response := helper.APIResponse("success create subcription type", 200, "Status OK", newCategory)
+	response := helper.APIResponse("success create category type", 200, "Status OK", newCategory)
 	c.JSON(200, response)
 }
 
@@ -74,6 +74,6 @@ func (h *categoryHandler) UpdateCategoryByIDHandler(c *gin.Context) {
 		return
 	}
 
-	response := helper.APIResponse("success update Subcription Type by ID", 200, "success", category)
+	response := helper.APIResponse("success update category by ID", 200, "success", category)
 	c.JSON(200, response)
 }

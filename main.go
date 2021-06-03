@@ -5,6 +5,7 @@ import (
 	"ngepet-yuk/category"
 	"ngepet-yuk/config"
 	"ngepet-yuk/handler"
+	"ngepet-yuk/mastery"
 	"ngepet-yuk/subtype"
 	"ngepet-yuk/user"
 	"ngepet-yuk/userDetail"
@@ -32,6 +33,10 @@ var (
 	categoryRepository = category.NewRepository(DB)
 	categoryService    = category.NewService(categoryRepository)
 	categoryHandler    = handler.NewCategoryHandler(categoryService)
+
+	masteryRepository = mastery.NewRepository(DB)
+	masteryService    = mastery.NewService(masteryRepository)
+	masteryHandler    = handler.NewMasteryHandler(masteryService)
 )
 
 func main() {
@@ -54,6 +59,10 @@ func main() {
 	r.GET("/categories", categoryHandler.ShowCategories)
 	r.POST("/categories", categoryHandler.CreateCategoryHandler)
 	r.PUT("/categories/:category_id", categoryHandler.UpdateCategoryByIDHandler)
+
+	r.GET("/masteries", masteryHandler.ShowMasteries)
+	r.POST("/masteries", masteryHandler.CreateMasteryHandler)
+	r.PUT("/masteries/:mastery_id", masteryHandler.UpdateMasteryByIDHandler)
 
 	r.Run(":8080")
 }

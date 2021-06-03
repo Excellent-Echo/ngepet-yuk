@@ -7,7 +7,6 @@ type Mastery struct {
 }
 
 type MasteryInput struct {
-	ID    int    `json:"id"`
 	Level string `json:"level"`
 }
 
