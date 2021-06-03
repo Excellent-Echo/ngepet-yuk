@@ -31,7 +31,7 @@ func (r *repository) FindByID(userTransactionID string) (entity.UserTransaction,
 	return userTransaction, nil
 }
 
-func (r *repository) FindByUserTransactionID(userID string) (entity.UserTransaction, error) {
+func (r *repository) FindByUserID(userID string) (entity.UserTransaction, error) {
 	var userTransaction entity.UserTransaction
 
 	if err := r.db.Where("user_id = ?", userID).Find(&userTransaction).Error; err != nil {

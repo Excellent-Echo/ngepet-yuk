@@ -14,7 +14,6 @@ var (
 )
 
 func UserTransactionRoute(r *gin.Engine) {
-
 	r.GET("/users/transaction/:user_id", userTransactionHandler.GetUserTransactionByUserIDHandler)
 	r.POST("/users/transactions/add", userTransactionHandler.SaveNewUserTransactionHandler)
 }

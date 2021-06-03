@@ -12,7 +12,7 @@ func main() {
 	routes.UserRoute(r)
 	routes.UserDetailRoute(r)
 	routes.SubTypeRoute(r)
-	routes.UserTransactionRoute()
+	routes.UserTransactionRoute(r)
 
 	r.Run(":8080")
 }
