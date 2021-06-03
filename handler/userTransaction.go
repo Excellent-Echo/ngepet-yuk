@@ -19,6 +19,29 @@ func NewUserTransactionHandler(userTransactionService userTransaction.Service, a
 	return &userTransactionHandler{userTransactionService, authService}
 }
 
+func (h *userTransactionHandler) ShowAllUserTransaction(c *gin.Context) {
+	userData := int(c.MustGet("currentUser").(int))
+
+	if userData == 0 {
+		responseError := helper.APIResponse("Unauthorize", 401, "error", gin.H{"error": "user not authorize / not login"})
+
+		c.JSON(401, responseError)
+		return
+	}
+
+	userTransaction, err := h.userTransactionService.GetAllUserTransaction()
+
+	if err != nil {
+		responseError := helper.APIResponse("internal server error", 500, "error", gin.H{"errors": err.Error()})
+
+		c.JSON(500, responseError)
+		return
+	}
+
+	response := helper.APIResponse("success get all userTransaction", 200, "status OK", userTransaction)
+	c.JSON(200, response)
+}
+
 func (h *userTransactionHandler) GetUserTransactionByUserIDHandler(c *gin.Context) {
 
 	userData := int(c.MustGet("currentUser").(int))

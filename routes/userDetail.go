@@ -14,9 +14,8 @@ var (
 )
 
 func UserDetailRoute(r *gin.Engine) {
-
+	r.GET("/userdetails", userDetailHandler.ShowAllUserDetail)
 	r.GET("/userdetails/:user_id", userDetailHandler.GetUserDetailByUserIDHandler)
 	r.POST("/userdetails", userDetailHandler.SaveNewUserDetailHandler)
 	r.PUT("/userdetails/:userdetail_id", userDetailHandler.UpdateUserDetailByIDHandler)
-
 }

@@ -9,6 +9,9 @@ function Register() {
     return (
         <>
             <div className="container-fluid">
+                <Navbar/>
+            </div>
+            <div className="container-fluid">
                 <div className="container">
                     <div className="auth-page-container">
                         <div className="row align-items-center">
