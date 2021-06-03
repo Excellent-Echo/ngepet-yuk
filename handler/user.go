@@ -5,7 +5,6 @@ import (
 	"strconv"
 
 	"ngepet-yuk/auth"
-	"ngepet-yuk/config"
 	"ngepet-yuk/entity"
 	"ngepet-yuk/helper"
 	"ngepet-yuk/user"
@@ -27,14 +26,14 @@ func (h *userHandler) ShowAllUser(c *gin.Context) {
 	users, err := h.userService.GetAllUser()
 
 	if err != nil {
-		responseError := helper.APIResponse("internal server error", http.StatusOK, "error", gin.H{"errors": err.Error()})
+		responseError := helper.APIResponse("internal server error", 500, "error", gin.H{"errors": err.Error()})
 
-		c.JSON(http.StatusOK, responseError)
+		c.JSON(500, responseError)
 		return
 	}
 
-	response := helper.APIResponse("success get all user", http.StatusOK, "status OK", users)
-	c.JSON(http.StatusOK, response)
+	response := helper.APIResponse("success get all user", 200, "status OK", users)
+	c.JSON(200, response)
 }
 
 // CREATE NEW USER OR REGISTER
@@ -44,30 +43,30 @@ func (h *userHandler) CreateUserHandler(c *gin.Context) {
 	if err := c.ShouldBindJSON(&inputUser); err != nil {
 
 		splitError := helper.SplitErrorInformation(err)
-		responseError := helper.APIResponse("input data required", http.StatusOK, "bad request", gin.H{"errors": splitError})
+		responseError := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": splitError})
 
-		c.JSON(http.StatusOK, responseError)
+		c.JSON(400, responseError)
 		return
 	}
 
 	// max len password 6
 	if err := helper.ValidatePassword(inputUser.Password); err != nil {
 
-		responseError := helper.APIResponse("input data required", http.StatusOK, "bad request", gin.H{"error": "error validate password length < 6"})
+		responseError := helper.APIResponse("input data required", 400, "bad request", gin.H{"error": "error validate password length < 6"})
 
-		c.JSON(http.StatusOK, responseError)
+		c.JSON(400, responseError)
 		return
 	}
 
 	newUser, err := h.userService.SaveNewUser(inputUser)
 	if err != nil {
-		responseError := helper.APIResponse("internal server error", http.StatusOK, "error", gin.H{"errors": err.Error()})
+		responseError := helper.APIResponse("internal server error", 500, "error", gin.H{"errors": err.Error()})
 
-		c.JSON(http.StatusOK, responseError)
+		c.JSON(500, responseError)
 		return
 	}
-	response := helper.APIResponse("success create new User", http.StatusOK, "Status OK", newUser)
-	c.JSON(http.StatusOK, response)
+	response := helper.APIResponse("success create new User", 201, "Status OK", newUser)
+	c.JSON(201, response)
 }
 
 // GET USER BY ID
@@ -76,17 +75,15 @@ func (h *userHandler) GetUserByIDHandler(c *gin.Context) {
 
 	user, err := h.userService.GetUserByID(id)
 	if err != nil {
-		responseError := helper.APIResponse("input params error", http.StatusOK, "bad request", gin.H{"errors": err.Error()})
+		responseError := helper.APIResponse("input params error", 400, "bad request", gin.H{"errors": err.Error()})
 
-		c.JSON(http.StatusOK, responseError)
+		c.JSON(400, responseError)
 		return
 	}
 
-	response := helper.APIResponse("success get user by ID", http.StatusOK, "success", user)
-	c.JSON(http.StatusOK, response)
+	response := helper.APIResponse("success get user by ID", 200, "success", user)
+	c.JSON(200, response)
 }
-
-var DB = config.Connection()
 
 // DELETE USER BY ID
 func (h *userHandler) DeleteUserByIDHandler(c *gin.Context) {
@@ -95,14 +92,14 @@ func (h *userHandler) DeleteUserByIDHandler(c *gin.Context) {
 	user, err := h.userService.DeleteUserByID(id)
 
 	if err != nil {
-		responseError := helper.APIResponse("error bad request delete user", http.StatusOK, "error", gin.H{"error": err.Error()})
+		responseError := helper.APIResponse("error bad request delete user", 400, "error", gin.H{"error": err.Error()})
 
-		c.JSON(http.StatusOK, responseError)
+		c.JSON(400, responseError)
 		return
 	}
 
-	response := helper.APIResponse("success delete user by ID", http.StatusOK, "success", user)
-	c.JSON(http.StatusOK, response)
+	response := helper.APIResponse("success delete user by ID", 200, "success", user)
+	c.JSON(200, response)
 }
 
 // UPDATE USER BY ID
@@ -113,9 +110,9 @@ func (h *userHandler) UpdateUserByIDHandler(c *gin.Context) {
 
 	if err := c.ShouldBindJSON(&updateUserInput); err != nil {
 		splitError := helper.SplitErrorInformation(err)
-		responseError := helper.APIResponse("input data required", http.StatusOK, "bad request", gin.H{"errors": splitError})
+		responseError := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": splitError})
 
-		c.JSON(http.StatusOK, responseError)
+		c.JSON(400, responseError)
 		return
 	}
 
@@ -125,9 +122,9 @@ func (h *userHandler) UpdateUserByIDHandler(c *gin.Context) {
 	userData := int(c.MustGet("currentUser").(int))
 
 	if idParam != userData {
-		responseError := helper.APIResponse("Unauthorize", http.StatusUnauthorized, "error", gin.H{"error": "user ID not authorize"})
+		responseError := helper.APIResponse("Unauthorize", 401, "error", gin.H{"error": "user ID not authorize"})
 
-		c.JSON(http.StatusUnauthorized, responseError)
+		c.JSON(401, responseError)
 		return
 	}
 
@@ -149,9 +146,9 @@ func (h *userHandler) LoginUserHandler(c *gin.Context) {
 
 	if err := c.ShouldBindJSON(&inputLoginUser); err != nil {
 		splitError := helper.SplitErrorInformation(err)
-		responseError := helper.APIResponse("input data required", http.StatusOK, "bad request", gin.H{"errors": splitError})
+		responseError := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": splitError})
 
-		c.JSON(http.StatusOK, responseError)
+		c.JSON(400, responseError)
 		return
 	}
 
@@ -159,9 +156,9 @@ func (h *userHandler) LoginUserHandler(c *gin.Context) {
 
 	if err != nil {
 		splitError := helper.SplitErrorInformation(err)
-		responseError := helper.APIResponse("input data required", http.StatusUnauthorized, "bad request", gin.H{"errors": splitError})
+		responseError := helper.APIResponse("input data required", 401, "bad request", gin.H{"errors": splitError})
 
-		c.JSON(http.StatusUnauthorized, responseError)
+		c.JSON(401, responseError)
 		return
 	}
 
@@ -169,11 +166,11 @@ func (h *userHandler) LoginUserHandler(c *gin.Context) {
 
 	if err != nil {
 		splitError := helper.SplitErrorInformation(err)
-		responseError := helper.APIResponse("input data required", http.StatusUnauthorized, "bad request", gin.H{"errors": splitError})
+		responseError := helper.APIResponse("input data required", 500, "bad request", gin.H{"errors": splitError})
 
-		c.JSON(http.StatusUnauthorized, responseError)
+		c.JSON(401, responseError)
 		return
 	}
-	response := helper.APIResponse("success login user", http.StatusOK, "success", gin.H{"token": token})
-	c.JSON(http.StatusOK, response)
+	response := helper.APIResponse("success login user", 200, "success", gin.H{"token": token})
+	c.JSON(200, response)
 }
