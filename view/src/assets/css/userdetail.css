@@ -1,0 +1,67 @@
+
+/* UNIVERSAL */
+.userdetail-container{
+    padding-top: 15vh;
+}
+
+.userdetail-title-container {
+    height: 15vh;    
+}
+
+.userdetail-section1-container {
+    min-height: 100vh;
+    display: flex;
+    /* align-items: center; */
+    background-color: #172A46;
+    opacity: 1;
+    background: repeating-linear-gradient( -45deg, #0A192F, #0A192F 7px, #172A46 7px, #172A46 35px );
+    /* justify-content: center; */
+    padding: 5vw;
+}
+
+.user-info {
+    padding-bottom: 25vh;
+    display: flex;
+    justify-content: center !important;
+}
+
+.user-avatar-container {
+    max-width: 200px;
+}
+
+.form-row {
+    padding-bottom: 10vh;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+/* DESKTOP ONLY */
+
+@media (min-width: 768px) { 
+
+ 
+
+}
+
+/* END */
+
+/* PHONE ONLY */
+
+@media (max-width: 768px) { 
+
+    .userdetail-container {
+        text-align: center;
+    }
+
+    .user-avatar-container {
+        text-align: center !important;
+        padding-bottom: 2vh;
+    }
+ 
+}

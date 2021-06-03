@@ -1,0 +1,82 @@
+/* UNIVERSAL */
+
+.courselist-container{
+    padding-top: 15vh;
+}
+
+.courselist-title-container {
+    height: 15vh;    
+}
+
+.courselist-section1-container {
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    background-color: #172A46;
+    opacity: 1;
+    background: repeating-linear-gradient( -45deg, #0A192F, #0A192F 7px, #172A46 7px, #172A46 35px );
+    display: flex;
+    justify-content: center;
+}
+
+.courselist-sections-container {
+    min-height: 45vh;
+    display: flex;
+    align-items: center !important;
+    background-color: #0A192F;
+    padding-top: 15vh;
+    /* padding-bottom: 15vh; */
+}
+
+.courselist-cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0;
+    padding-top: 2vh;
+    padding-bottom: 3vh;
+}
+
+.courselist-cards-container .col-sm {
+    flex: 0 0 auto;
+}
+
+.courselist-card {
+  background-color: #172A46;
+  border: 2px solid #64FCDA;
+  cursor: pointer;
+  transition: ease-in-out .2s all;
+  padding: 15px;
+}
+
+.courselist-card:hover {
+  transform: scale(1.03);
+}
+
+.before-footer {
+    padding-bottom: 15vh;
+}
+
+/* DESKTOP ONLY */
+
+@media (min-width: 768px) { 
+
+ 
+
+}
+
+/* END */
+
+/* PHONE ONLY */
+
+@media (max-width: 768px) { 
+
+    .courselist-container {
+        text-align: center;
+    }
+
+    .courselist-title {
+        padding-bottom: 1vh;
+    }
+ 
+}
