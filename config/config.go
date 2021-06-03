@@ -2,7 +2,6 @@ package config
 
 import (
 	"fmt"
-	"ngepet-yuk/entity"
 	"os"
 
 	// "ngepet-yuk/entity"
@@ -28,13 +27,13 @@ func Connection() *gorm.DB {
 		panic(err.Error())
 	}
 
-	db.AutoMigrate(&entity.Category{})
-	db.AutoMigrate(&entity.User{})
-	db.AutoMigrate(&entity.Courses{})
-	db.AutoMigrate(&entity.Mastery{})
-	db.AutoMigrate(&entity.SubType{})
-	db.AutoMigrate(&entity.UserDetail{})
-	db.AutoMigrate(&entity.UserTransaction{})
+	// db.AutoMigrate(&entity.Category{})
+	// db.AutoMigrate(&entity.User{})
+	// db.AutoMigrate(&entity.Courses{})
+	// db.AutoMigrate(&entity.Mastery{})
+	// db.AutoMigrate(&entity.SubType{})
+	// db.AutoMigrate(&entity.UserDetail{})
+	// db.AutoMigrate(&entity.UserTransaction{})
 
 	return db
 }
