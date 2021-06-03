@@ -7,6 +7,7 @@ import (
 )
 
 type Repository interface {
+	GetAll() ([]entity.UserDetail, error)
 	FindByID(userDetailID string) (entity.UserDetail, error)
 	FindByUserID(userID string) (entity.UserDetail, error)
 	Create(input entity.UserDetail) (entity.UserDetail, error)
@@ -20,6 +21,17 @@ type repository struct {
 
 func NewRepository(db *gorm.DB) *repository {
 	return &repository{db}
+}
+
+func (r *repository) GetAll() ([]entity.UserDetail, error) {
+	var UserDetails []entity.UserDetail
+
+	err := r.db.Find(&UserDetails).Error
+	if err != nil {
+		return UserDetails, err
+	}
+
+	return UserDetails, nil
 }
 
 func (r *repository) FindByID(userDetailID string) (entity.UserDetail, error) {

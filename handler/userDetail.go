@@ -20,6 +20,29 @@ func NewUserDetailHandler(userDetailService userDetail.Service, authService auth
 	return &userDetailHandler{userDetailService, authService}
 }
 
+func (h *userDetailHandler) ShowAllUserDetail(c *gin.Context) {
+	userData := int(c.MustGet("currentUser").(int))
+
+	if userData == 0 {
+		responseError := helper.APIResponse("Unauthorize", 401, "error", gin.H{"error": "user not authorize / not login"})
+
+		c.JSON(401, responseError)
+		return
+	}
+
+	userDetail, err := h.userDetailService.GetAllUserDetail()
+
+	if err != nil {
+		responseError := helper.APIResponse("internal server error", 500, "error", gin.H{"errors": err.Error()})
+
+		c.JSON(500, responseError)
+		return
+	}
+
+	response := helper.APIResponse("success get all userDetail", 200, "status OK", userDetail)
+	c.JSON(200, response)
+}
+
 func (h *userDetailHandler) GetUserDetailByUserIDHandler(c *gin.Context) {
 
 	userData := int(c.MustGet("currentUser").(int))
