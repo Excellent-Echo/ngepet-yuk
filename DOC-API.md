@@ -25,8 +25,9 @@ bila ada update Endpoit Detail, ber arti ada penambahan task
 - `PUT /user_details/:detail_id`
 
 ## userTransaction
-- `GET /user/transactions`
-- `POST /user/transactions/add`
+- `GET /users/transactions`
+- `GET /users/transactions/:user_id`
+- `POST /users/transactions/add`
 
 ## Sub Type 
 - `GET /sub-types/`
@@ -749,3 +750,12 @@ _Response (500 - Internal Server Error)_
 }
 ```
 ---
+
+## RESTful endpoint userTransaction
+
+### GET /user-transactions
+
+> Get all user transaction data
+just admin can access this endpoint
+
+

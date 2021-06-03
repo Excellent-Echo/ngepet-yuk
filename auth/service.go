@@ -8,8 +8,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-var SECRET_KEY = []byte("rahasia")
-
 var (
 	err = godotenv.Load()
 	key = os.Getenv("SECRET_KEY")
