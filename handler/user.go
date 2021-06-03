@@ -50,6 +50,15 @@ func (h *userHandler) CreateUserHandler(c *gin.Context) {
 		return
 	}
 
+	// max len password 6
+	if err := helper.ValidatePassword(inputUser.Password); err != nil {
+
+		responseError := helper.APIResponse("input data required", http.StatusOK, "bad request", gin.H{"error": "error validate password length < 6"})
+
+		c.JSON(http.StatusOK, responseError)
+		return
+	}
+
 	newUser, err := h.userService.SaveNewUser(inputUser)
 	if err != nil {
 		responseError := helper.APIResponse("internal server error", http.StatusOK, "error", gin.H{"errors": err.Error()})

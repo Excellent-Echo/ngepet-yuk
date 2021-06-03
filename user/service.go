@@ -134,8 +134,6 @@ func (s *service) DeleteUserByID(userID string) (interface{}, error) {
 	return formatDelete, nil
 }
 
-//(UserFormat, error)
-
 func (s *service) UpdateUserByID(userID string, dataInput entity.UpdateUserInput) (UserFormat, error) {
 	var dataUpdate = map[string]interface{}{}
 
