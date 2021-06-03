@@ -4,6 +4,7 @@ import (
 	"ngepet-yuk/auth"
 	"ngepet-yuk/category"
 	"ngepet-yuk/config"
+	"ngepet-yuk/course"
 	"ngepet-yuk/handler"
 	"ngepet-yuk/mastery"
 	"ngepet-yuk/subtype"
@@ -37,6 +38,10 @@ var (
 	masteryRepository = mastery.NewRepository(DB)
 	masteryService    = mastery.NewService(masteryRepository)
 	masteryHandler    = handler.NewMasteryHandler(masteryService)
+
+	courseRepository = course.NewRepository(DB)
+	courseService    = course.NewService(courseRepository)
+	courseHandler    = handler.NewCourseHandler(courseService)
 )
 
 func main() {
@@ -63,6 +68,15 @@ func main() {
 	r.GET("/masteries", masteryHandler.ShowMasteries)
 	r.POST("/masteries", masteryHandler.CreateMasteryHandler)
 	r.PUT("/masteries/:mastery_id", masteryHandler.UpdateMasteryByIDHandler)
+
+	r.GET("/courses", courseHandler.ShowCourses)
+	//r.GET("")
+	r.GET("/courses/category/:category_id", courseHandler.ShowCourseFilterByCategory)
+	r.GET("/courses/mastery/:mastery_id", courseHandler.ShowCourseFilterByMastery)
+	r.GET("/courses/subcription/:sub_type", courseHandler.ShowCourseFilterBySubcription)
+	r.POST("/courses", courseHandler.CreateCourseHandler)
+	r.PUT("/courses/:course_id", courseHandler.UpdateCourseByIDHandler)
+	r.DELETE("/courses/:course_id", courseHandler.DeleteCourseByIDHandler)
 
 	r.Run(":8080")
 }

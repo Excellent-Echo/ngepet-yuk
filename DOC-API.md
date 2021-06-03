@@ -45,9 +45,6 @@ bila ada update Endpoit Detail, ber arti ada penambahan task
 - `PUT /masteries/:mastery_id`
 
 ## course 
-- `GET /courses/all`
-- `GET /courses/basic`
-- `GET /courses/premium`
 - `GET /courses/:category_id`
 - `GET /courses/:mastery_id`
 - `GET /courses/:sub_id`
