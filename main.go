@@ -2,6 +2,7 @@ package main
 
 import (
 	"ngepet-yuk/auth"
+	"ngepet-yuk/category"
 	"ngepet-yuk/config"
 	"ngepet-yuk/handler"
 	"ngepet-yuk/subtype"
@@ -27,6 +28,10 @@ var (
 	subtypeRepository = subtype.NewRepository(DB)
 	subtypeService    = subtype.NewService(subtypeRepository)
 	subtypeHandler    = handler.NewSubTypeHandler(subtypeService)
+
+	categoryRepository = category.NewRepository(DB)
+	categoryService    = category.NewService(categoryRepository)
+	categoryHandler    = handler.NewCategoryHandler(categoryService)
 )
 
 func main() {
@@ -45,6 +50,10 @@ func main() {
 	r.GET("/sub-types", subtypeHandler.ShowAllSubType)
 	r.POST("/sub-types", subtypeHandler.CreateSubtypeHandler)
 	r.PUT("/sub-types/:subtype_id", subtypeHandler.UpdateSubtypeByIDHandler)
+
+	r.GET("/categories", categoryHandler.ShowCategories)
+	r.POST("/categories", categoryHandler.CreateCategoryHandler)
+	r.PUT("/categories/:category_id", categoryHandler.UpdateCategoryByIDHandler)
 
 	r.Run(":8080")
 }
