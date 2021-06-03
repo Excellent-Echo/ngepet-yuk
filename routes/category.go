@@ -14,7 +14,7 @@ var (
 )
 
 func CategoryRoute(r *gin.Engine) {
-	categoryRepository = category.NewRepository(DB)
-	categoryService = category.NewService(categoryRepository)
-	categoryHandler = handler.NewCategoryHandler(categoryService)
+	r.GET("/categories", categoryHandler.ShowCategories)
+	r.POST("/categories", categoryHandler.CreateCategoryHandler)
+	r.PUT("/categories/:category_id", categoryHandler.UpdateCategoryByIDHandler)
 }
