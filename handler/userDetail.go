@@ -5,7 +5,7 @@ import (
 	"ngepet-yuk/auth"
 	"ngepet-yuk/entity"
 	"ngepet-yuk/helper"
-	"ngepet-yuk/userDetail"
+	"ngepet-yuk/layer/userDetail"
 	"strconv"
 
 	"github.com/gin-gonic/gin"

@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"ngepet-yuk/category"
 	"ngepet-yuk/entity"
 	"ngepet-yuk/helper"
+	"ngepet-yuk/layer/category"
 
 	"github.com/gin-gonic/gin"
 )

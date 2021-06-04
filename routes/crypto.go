@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"ngepet-yuk/crypto"
 	"ngepet-yuk/handler"
+	"ngepet-yuk/layer/crypto"
 
 	"github.com/gin-gonic/gin"
 )

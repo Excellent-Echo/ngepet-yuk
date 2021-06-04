@@ -4,7 +4,7 @@ import (
 	"ngepet-yuk/auth"
 	"ngepet-yuk/config"
 	"ngepet-yuk/handler"
-	"ngepet-yuk/user"
+	"ngepet-yuk/layer/user"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"

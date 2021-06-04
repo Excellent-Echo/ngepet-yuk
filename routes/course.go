@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"ngepet-yuk/course"
 	"ngepet-yuk/handler"
+	"ngepet-yuk/layer/course"
 
 	"github.com/gin-gonic/gin"
 )

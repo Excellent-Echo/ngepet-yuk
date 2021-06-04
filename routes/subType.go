@@ -2,7 +2,7 @@ package routes
 
 import (
 	"ngepet-yuk/handler"
-	"ngepet-yuk/subtype"
+	"ngepet-yuk/layer/subtype"
 
 	"github.com/gin-gonic/gin"
 )

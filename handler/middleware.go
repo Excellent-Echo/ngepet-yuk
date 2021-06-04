@@ -3,7 +3,7 @@ package handler
 import (
 	"ngepet-yuk/auth"
 	"ngepet-yuk/helper"
-	"ngepet-yuk/user"
+	"ngepet-yuk/layer/user"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"

@@ -2,9 +2,9 @@ package handler
 
 import (
 	"net/http"
-	"ngepet-yuk/course"
 	"ngepet-yuk/entity"
 	"ngepet-yuk/helper"
+	"ngepet-yuk/layer/course"
 
 	"github.com/gin-gonic/gin"
 )

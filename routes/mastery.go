@@ -2,7 +2,7 @@ package routes
 
 import (
 	"ngepet-yuk/handler"
-	"ngepet-yuk/mastery"
+	"ngepet-yuk/layer/mastery"
 
 	"github.com/gin-gonic/gin"
 )
