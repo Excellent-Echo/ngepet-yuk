@@ -145,8 +145,8 @@ func (h *userHandler) LoginUserHandler(c *gin.Context) {
 	var inputLoginUser entity.LoginUserInput
 
 	if err := c.ShouldBindJSON(&inputLoginUser); err != nil {
-		splitError := helper.SplitErrorInformation(err)
-		responseError := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": splitError})
+		//splitError := helper.SplitErrorInformation(err)
+		responseError := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": err.Error()})
 
 		c.JSON(400, responseError)
 		return
@@ -155,8 +155,8 @@ func (h *userHandler) LoginUserHandler(c *gin.Context) {
 	userData, err := h.userService.LoginUser(inputLoginUser)
 
 	if err != nil {
-		splitError := helper.SplitErrorInformation(err)
-		responseError := helper.APIResponse("input data required", 401, "bad request", gin.H{"errors": splitError})
+		//splitError := helper.SplitErrorInformation(err)
+		responseError := helper.APIResponse("input data required", 401, "bad request", gin.H{"errors": err.Error()})
 
 		c.JSON(401, responseError)
 		return
@@ -165,10 +165,10 @@ func (h *userHandler) LoginUserHandler(c *gin.Context) {
 	token, err := h.authService.GenerateToken(userData.ID)
 
 	if err != nil {
-		splitError := helper.SplitErrorInformation(err)
-		responseError := helper.APIResponse("input data required", 500, "bad request", gin.H{"errors": splitError})
+		//splitError := helper.SplitErrorInformation(err)
+		responseError := helper.APIResponse("input data required", 500, "bad request", gin.H{"errors": err.Error()})
 
-		c.JSON(401, responseError)
+		c.JSON(500, responseError)
 		return
 	}
 	response := helper.APIResponse("success login user", 200, "success", gin.H{"token": token})
