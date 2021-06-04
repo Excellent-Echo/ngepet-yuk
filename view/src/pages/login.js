@@ -1,5 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+
+import userLoginAction from "../redux/user/login/userLoginAction";
 
 import '../assets/css/auth.css'
 import Navbar from '../components/navbar'
@@ -7,6 +10,16 @@ import securityIllustration from '../assets/illustrations/security.svg'
 import Footer from '../components/footer'
 
 function Login() {
+    const userLoginData = useSelector(state =>state.userLogin);
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const loginSubmitHandler = e => {
+        e.preventDefault();
+    
+        dispatch(userLoginAction.login(userLoginData.email, userLoginData.password, history));
+      };
+
     return (
         <>
             <div className="container-fluid">
@@ -30,16 +43,37 @@ function Login() {
                                         Pe-ngepet sejati adalah mereka yang bisa ngepet dengan halal, mari lanjut belajar bersama kami.
                                     </p>
                                     <div className="auth-form">
-                                        <form>
+                                        <form onSubmit={loginSubmitHandler}>
                                             <div className="mb-3">
                                                 <label for="username" className="form-label title">Username</label>
-                                                <input type="username" className="form-control" id="username" aria-describedby="emailHelp"/>
+                                                <input 
+                                                type="username" 
+                                                className="form-control" 
+                                                id="username" 
+                                                aria-describedby="emailHelp"
+                                                value={userLoginData.email}
+                                                onChange={e => {
+                                                    dispatch(userLoginAction.setEmail(e.target.value));
+                                                }}
+                                                />
                                             </div>
                                             <div className="mb-3">
                                                 <label for="exampleInputPassword1" className="form-label title">Password</label>
-                                                <input type="password" className="form-control" id="exampleInputPassword1"/>
+                                                <input 
+                                                type="password" 
+                                                className="form-control" 
+                                                id="exampleInputPassword1"
+                                                value={userLoginData.password}
+                                                onChange={e => {
+                                                    dispatch(userLoginAction.setPassword(e.target.value));
+                                                }}
+                                                />
                                             </div>
-                                            <button type="submit" className="btn btnAuth btnLime">Login</button>
+                                            <button type="submit" 
+                                            className="btn btnAuth btnLime"
+                                            value={userLoginData.isLoading ? "Loading..." : "Login"}
+                                            disabled={userLoginData.isLoading ? true : false}
+                                            >Login</button>
                                         </form>
                                         <br/>
                                         <h6>Baru mau mulai ngepet?</h6>

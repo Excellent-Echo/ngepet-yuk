@@ -14,13 +14,13 @@ function Register() {
     const dispatch = useDispatch();
 
     useEffect(()=> {
-        console.log(userRegisterData.role)
+        //console.log(userRegisterData.role)
         dispatch(userRegisterAction.resetFrom())
     }, []);
 
     const handlerRegisterSubmit = e => {
         e.preventDefault();
-        //console.log(userRegisterData.userName)
+        console.log(userRegisterData.userName)
         dispatch(
             userRegisterAction.register(
                 userRegisterData.userName,

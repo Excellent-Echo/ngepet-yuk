@@ -5,7 +5,8 @@ const initialState = {
     role: "user",
     errorMessage: "",
     succesMessage: "",
-    isLoading: false
+    isLoading: false,
+    userdata:"",
 }
 
 const userRegisterReducer = (state = initialState, action) => {
@@ -62,6 +63,12 @@ const userRegisterReducer = (state = initialState, action) => {
               ...state,
               isLoading: false,
             };
+
+        case "USER_GET_DATA":
+            return {
+                ...state,
+                userdata: action.payload.userdata
+            }
       
         default:
             return state;
