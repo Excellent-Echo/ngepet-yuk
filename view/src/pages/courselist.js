@@ -42,7 +42,7 @@ function CourseList() {
                         </div>
                         <div className="row courselist-cards-container overflow-auto">
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card" data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -53,7 +53,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card" data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -64,7 +64,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card" data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -75,7 +75,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card" data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -86,7 +86,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card" data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -97,7 +97,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card" data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -108,7 +108,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card" data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -129,7 +129,7 @@ function CourseList() {
                         </div>
                         <div className="row courselist-cards-container overflow-auto">
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -140,7 +140,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -151,7 +151,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -162,7 +162,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -173,7 +173,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -184,7 +184,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -195,7 +195,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -216,7 +216,7 @@ function CourseList() {
                         </div>
                         <div className="row courselist-cards-container overflow-auto">
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -227,7 +227,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -238,7 +238,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -249,7 +249,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -260,7 +260,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -271,7 +271,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -282,7 +282,7 @@ function CourseList() {
                                 </div>
                             </div>
                             <div className="col-sm-3">
-                                <div className="card courselist-card">
+                                <div className="card courselist-card"  data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <img src="..." className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h5 className="card-title">[ COURSE TITLE ]</h5>
@@ -298,6 +298,22 @@ function CourseList() {
                 </div>
                 <div className="container-fluid before-footer">
 
+                </div>
+                <div class="modal fade" id="courseModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content course-modal">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="courseModalLabel">[ COURSE TITLE ]</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btnLimeOutline" data-bs-dismiss="modal">Selesai</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <Footer/>

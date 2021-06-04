@@ -9,7 +9,7 @@
 }
 
 .courselist-section1-container {
-    min-height: 45vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     background-color: #172A46;
@@ -55,6 +55,11 @@
 
 .before-footer {
     padding-bottom: 15vh;
+}
+
+.course-modal {
+    background-color: #172A46;
+    border: 2px solid #64FCDA;
 }
 
 /* DESKTOP ONLY */
