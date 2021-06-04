@@ -19,10 +19,10 @@ bila ada update Endpoit Detail, ber arti ada penambahan task
 - `DELETE /users/:user_id`
 
 ## userDetails
-- `GET /user_details`
-- `GET /user_details/:user_id`
-- `POST /user_details`
-- `PUT /user_details/:detail_id`
+- `GET /alluserdetails`
+- `GET /userdetails`
+- `POST /userdetails`
+- `PUT /userdetails/:detail_id`
 
 ## userTransaction
 - `GET /users/transactions`
@@ -452,7 +452,7 @@ _Response (500 - Internal Server Error)_
 
 ## RESTfull API User Detail
 
-### GET /user_details
+### GET /alluserdetails
 
 > Get All User Details
 just user with role admin can access endpoint
@@ -540,7 +540,7 @@ _Response (500 - Internal Server Error)_
 ```
 ---
 
-## GET /user_details/:user_id
+## GET /userdetails/
 
 > Get User Detail with user id
 user with role admin can use this endpoint
@@ -611,7 +611,7 @@ _Response (500 - Internal Server Error)_
 ```
 ---
 
-## POST /user_details
+## POST /userdetails
 
 > Create user details
 
@@ -632,7 +632,6 @@ _Request Body_
     "gender": "male",
     "address": "Unknown",
     "Period": 0,
-    "user_id": 2,
 }
 ```
 
@@ -682,7 +681,7 @@ _Response (500 - Internal Server Error)_
 ```
 ---
 
-### PUT /user_details/:detail_id
+### PUT /userdetails/:detail_id
 
 > Update user detail by detail iD
 just user who have same id with param can access endpoint
@@ -747,12 +746,3 @@ _Response (500 - Internal Server Error)_
 }
 ```
 ---
-
-## RESTful endpoint userTransaction
-
-### GET /user-transactions
-
-> Get all user transaction data
-just admin can access this endpoint
-
-

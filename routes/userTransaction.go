@@ -2,7 +2,7 @@ package routes
 
 import (
 	"ngepet-yuk/handler"
-	"ngepet-yuk/userTransaction"
+	"ngepet-yuk/layer/userTransaction"
 
 	"github.com/gin-gonic/gin"
 )

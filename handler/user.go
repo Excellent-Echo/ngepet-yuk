@@ -7,7 +7,7 @@ import (
 	"ngepet-yuk/auth"
 	"ngepet-yuk/entity"
 	"ngepet-yuk/helper"
-	"ngepet-yuk/user"
+	"ngepet-yuk/layer/user"
 
 	"github.com/gin-gonic/gin"
 )

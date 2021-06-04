@@ -3,7 +3,7 @@ package handler
 import (
 	"ngepet-yuk/entity"
 	"ngepet-yuk/helper"
-	"ngepet-yuk/mastery"
+	"ngepet-yuk/layer/mastery"
 
 	"github.com/gin-gonic/gin"
 )
