@@ -19,15 +19,15 @@ function Register() {
 
     const handlerRegisterSubmit = e => {
         e.preventDefault();
-        console.log(userRegisterData.userName)
-        // dispatch(
-        //     userRegisterAction.Register(
-        //         userRegisterData.userName,
-        //         userRegisterData.email,
-        //         userRegisterData.password,
-        //         userRegisterData.role
-        //     )
-        // );
+        //console.log(userRegisterData.userName)
+        dispatch(
+            userRegisterAction.register(
+                userRegisterData.userName,
+                userRegisterData.email,
+                userRegisterData.password,
+                userRegisterData.role
+            )
+        );
     };
 
     return (
@@ -91,7 +91,7 @@ function Register() {
                                             className="btn btnAuth btnLime"
                                             value={userRegisterData.isLoading ? "Loading.." : "Daftar"}
                                             disabled={userRegisterData.isLoading ? true : false}
-                                            />
+                                            >Daftar</button>
                                         </form>
                                         <br/>
                                         <h6>Sudah pernah belajar ngepet disini?</h6>

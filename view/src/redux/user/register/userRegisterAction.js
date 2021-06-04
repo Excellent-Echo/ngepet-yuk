@@ -87,7 +87,7 @@ const register = (userName, email, password, role) => async dispatch => {
         };
 
         const user = await ngepetYukClient({
-            method:"POST",
+            method: "POST",
             url: "/users/register",
             data: submitData,
         });
@@ -96,8 +96,7 @@ const register = (userName, email, password, role) => async dispatch => {
         dispatch(stopLoading())
     } catch (error){
         console.log(error.response);
-        //console.log{error.response};
-        //dispatch(setErrorMessage(error.response.data.data.errors || ["internal server error"]));
+        dispatch(setErrorMessage(error.response.data.errors || ["internal server error"]));
         dispatch(stopLoading());
     }
 };
