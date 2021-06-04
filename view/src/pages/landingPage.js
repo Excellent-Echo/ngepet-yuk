@@ -5,6 +5,7 @@ import '../assets/css/landing.css'
 import savingIllustration from "../assets/illustrations/savings.svg"
 import ethereumIllustration from "../assets/illustrations/ethereum.svg"
 import learningIllustration from "../assets/illustrations/learning.svg"
+import Footer from '../components/footer'
 
 function LandingPage() {
     return (
@@ -77,7 +78,7 @@ function LandingPage() {
               </div>
             </div>
           </div>
-          <div className="container-fluid sections-container section3-container">
+          {/* <div className="container-fluid sections-container section3-container">
             <div className="container">
               <div className="row">
                 <div className="col-sm-6 section-text section3-text">
@@ -133,7 +134,7 @@ function LandingPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="container-fluid sections-container section4-container">
             <div className="container">
               <div className="row text-center">
@@ -241,15 +242,7 @@ function LandingPage() {
             </div>
           </div>
         </div>
-        <div className="container-fluid footer-container">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col">
-                <b>Copyright © 2021 - Ngepet Yuk! Team</b>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Footer/>
         </>
     )
 }

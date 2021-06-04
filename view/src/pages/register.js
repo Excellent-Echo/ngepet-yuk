@@ -7,6 +7,7 @@ import userRegisterAction from "../redux/user/register/userRegisterAction";
 import '../assets/css/auth.css'
 import Navbar from '../components/navbar'
 import profileIllustration from '../assets/illustrations/profile.svg'
+import Footer from '../components/footer'
 
 function Register() {
     const userRegisterData = useSelector(state => state.userRegister);
@@ -103,6 +104,7 @@ function Register() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }
