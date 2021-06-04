@@ -85,7 +85,7 @@ const register = (userName, email, password, role) => async dispatch => {
             password: password,
             role:role
         };
-
+        //console.log(submitData);
         const user = await ngepetYukClient({
             method: "POST",
             url: "/users/register",
@@ -95,8 +95,9 @@ const register = (userName, email, password, role) => async dispatch => {
         dispatch(setSuccessMessage("Registrasi Berhasil, Silakan Login"));
         dispatch(stopLoading())
     } catch (error){
-        console.log(error.response);
-        dispatch(setErrorMessage(error.response.data.errors || ["internal server error"]));
+        console.log("ini error ege")
+        console.log(error);
+        //dispatch(setErrorMessage(error.response.data.errors || ["internal server error"]));
         dispatch(stopLoading());
     }
 };
